@@ -7,6 +7,15 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-.teste {
-  background-color: #2d3748;
+@import "font-awesome";
+
+.bg-warning-box {
+  background-color: rgb(250, 220, 158) !important;
+}
+
+.btn[type="submit"]:disabled {
+  background-color: #6c757d !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  cursor: not-allowed !important;
 }
