@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    image: webdevops/php-apache-dev:8.1
+    volumes:
+      - .:/app
+    ports:
+      - "3020:80"
+    tty: true
+    working_dir: /app
+    networks:
+      - projeto-votacao
+  db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - projeto-votacao
+
+networks:
+  projeto-votacao:
+    driver: bridge
