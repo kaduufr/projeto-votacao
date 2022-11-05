@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PollController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::prefix('/votacao')->group(function () {
+    Route::get('/cadastrar', [PollController::class, 'new']);
 });
