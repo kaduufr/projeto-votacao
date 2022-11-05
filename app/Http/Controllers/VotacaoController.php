@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Votacao;
+use App\Services\Interfaces\VotacaoServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -15,8 +15,7 @@ class VotacaoController extends Controller
 
   function create(Request $request)
   {
-
-
+    $this->votacao_service->create($request->all());
 
         return redirect()->route('home')
           ->with('success', 'Poll created successfully.');

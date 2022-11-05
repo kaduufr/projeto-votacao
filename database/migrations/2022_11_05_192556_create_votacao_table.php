@@ -14,7 +14,7 @@ return new class extends Migration {
   {
     Schema::create('votacao', function (Blueprint $table) {
       $table->id();
-      $table->boolean('is_active')->default(true);
+      $table->boolean('ativa')->default(true);
       $table->timestamps();
     });
   }

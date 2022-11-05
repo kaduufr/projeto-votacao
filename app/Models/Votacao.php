@@ -12,12 +12,6 @@ class Votacao extends Model
     protected $table = 'votacao';
 
     protected $fillable = [
-      'name_mate',
-      'cod_mate',
-      'name_syndic',
-      'cpf_syndic',
-      'name_subsyndic',
-      'cpf_subsyndic',
-      'is_active'
+      'ativa'
     ];
 }

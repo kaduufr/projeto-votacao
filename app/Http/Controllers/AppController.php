@@ -8,7 +8,7 @@ class AppController extends Controller
 {
     function index()
     {
-      $polls = Votacao::query()->where('is_active', true)->get();
+      $polls = Votacao::query()->where('ativa', true)->get();
       return view('home', ['polls' => $polls]);
     }
 }
