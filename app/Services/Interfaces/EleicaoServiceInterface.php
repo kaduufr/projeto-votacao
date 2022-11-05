@@ -2,7 +2,7 @@
 
 namespace App\Services\Interfaces;
 
-interface VotacaoServiceInterface {
+interface EleicaoServiceInterface {
 
   public function create(array $request);
 

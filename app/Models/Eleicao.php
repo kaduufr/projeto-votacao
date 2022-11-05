@@ -5,13 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Votacao extends Model
+class Eleicao extends Model
 {
     use HasFactory;
 
-    protected $table = 'votacao';
+    protected $table = 'eleicao';
 
     protected $fillable = [
       'ativa'
+    ];
+
+    protected $visible = [
+      'id',
+      'is_active'
     ];
 }

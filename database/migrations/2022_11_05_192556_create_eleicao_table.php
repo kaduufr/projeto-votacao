@@ -12,7 +12,7 @@ return new class extends Migration {
    */
   public function up()
   {
-    Schema::create('votacao', function (Blueprint $table) {
+    Schema::create('eleicao', function (Blueprint $table) {
       $table->id();
       $table->boolean('ativa')->default(true);
       $table->timestamps();
@@ -26,6 +26,6 @@ return new class extends Migration {
    */
   public function down()
   {
-    Schema::dropIfExists('votacao');
+    Schema::dropIfExists('eleicao');
   }
 };

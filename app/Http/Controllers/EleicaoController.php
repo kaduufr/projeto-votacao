@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Interfaces\VotacaoServiceInterface;
+use App\Services\Interfaces\EleicaoServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class VotacaoController extends Controller
+class EleicaoController extends Controller
 {
+  public function __construct(
+    private EleicaoServiceInterface $votacao_service
+  )
+  {
+
+  }
   function new(): View
   {
-    return view('poll.new');
+    return view('new');
   }
 
   function create(Request $request)

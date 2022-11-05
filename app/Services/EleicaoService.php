@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\Votacao;
+use App\Models\Eleicao;
 use App\Services\Interfaces\ChapaServiceInterface;
-use App\Services\Interfaces\VotacaoServiceInterface;
+use App\Services\Interfaces\EleicaoServiceInterface;
 
-class VotacaoService implements VotacaoServiceInterface
+class EleicaoService implements EleicaoServiceInterface
 {
   public function __construct(
     private ChapaServiceInterface $chapa_service
@@ -16,7 +16,7 @@ class VotacaoService implements VotacaoServiceInterface
 
   public function create(array $request)
   {
-    $votacao = Votacao::create();
+    $votacao = Eleicao::create();
     $this->chapa_service->createMany($request, $votacao->id);
   }
 
