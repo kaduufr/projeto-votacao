@@ -8,7 +8,7 @@ class AppController extends Controller
 {
     function index()
     {
-      $polls = Eleicao::query()->where('ativa', true)->get();
-      return view('home', ['polls' => $polls]);
+      $eleicoes = Eleicao::query()->where('ativa', true)->with('chapas')->get();
+      return view('home', ['eleicoes' => $eleicoes]);
     }
 }

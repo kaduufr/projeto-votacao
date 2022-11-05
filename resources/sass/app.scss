@@ -19,3 +19,54 @@
   color: #fff !important;
   cursor: not-allowed !important;
 }
+
+.btn-eleicao {
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  color: rgb(2, 8, 14);
+  z-index: 2;
+  > span {
+    z-index: 12;
+  }
+  > span:first-child {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+.border-none {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.btn-eleicao:hover {
+  background-color: #f8f9fa !important;
+}
+
+.bg-all {
+  background-color: #f8f9fa !important;
+  background-image: url("https://serpros.com.br/wp-content/uploads/2021/01/fundo_azul-1170x725.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+.box-borded {
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background-color: rgba(169, 169, 169, 0.28);
+}
+
+.icon-box-eleicao {
+  font-size: 16rem;
+  color: rgba(255, 255, 255, 0.34);
+  z-index: 0;
+}
+
+.z-2 {
+  z-index: 2;
+}

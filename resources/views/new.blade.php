@@ -23,7 +23,7 @@
     <i class="fa fa-plus fs-5 ms-1 "></i>
   </button>
 
-  <form method="POST" action="{{route('create_poll')}}">
+  <form method="POST" action="{{route('create_eleicao')}}">
     @csrf
     <div id="chapas">
 

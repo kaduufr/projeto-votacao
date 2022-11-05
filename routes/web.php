@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AppController::class, 'index'])->name('home');
 
 Route::prefix('/votacao')->group(function () {
-    Route::get('/cadastrar', [EleicaoController::class, 'new']);
-    Route::post('/cadastrar', [EleicaoController::class, 'create'])->name('create_poll');
+    Route::get('/cadastrar', [EleicaoController::class, 'new'])->name('new_eleicao');
+    Route::post('/cadastrar', [EleicaoController::class, 'create'])->name('create_eleicao');
 });
+
+Route::get('/eleicao/{id}', [EleicaoController::class, 'show'])->name('show_eleicao');

@@ -14,8 +14,10 @@
 
   </head>
   <body>
-    <div class="container py-4 min-vh-100">
-      @yield('content')
+    <div class="bg-all">
+      <div class="container py-4 min-vh-100">
+        @yield('content')
+      </div>
     </div>
   </body>
   @stack('scripts')

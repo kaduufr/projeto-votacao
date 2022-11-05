@@ -5,6 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int $id
+ * @property int $ativa
+ *
+ */
+
 class Eleicao extends Model
 {
     use HasFactory;
@@ -12,11 +18,16 @@ class Eleicao extends Model
     protected $table = 'eleicao';
 
     protected $fillable = [
-      'ativa'
+      'ativa',
     ];
 
     protected $visible = [
       'id',
-      'is_active'
+      'ativa'
     ];
+
+    public function chapas()
+    {
+      return $this->hasMany(Chapa::class, 'cod_votacao', 'id');
+    }
 }
