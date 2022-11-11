@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('bloco')->nullable(false);
             $table->string('apartamento')->nullable(false);
             $table->foreignId('cod_chapa')->references('id')->on('chapa')->nullable(false);
+            $table->foreignId('cod_eleicao')->references('id')->on('eleicao')->nullable(false);
             $table->timestamps();
         });
     }

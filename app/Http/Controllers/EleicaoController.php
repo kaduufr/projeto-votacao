@@ -9,11 +9,9 @@ use Illuminate\View\View;
 class EleicaoController extends Controller
 {
   public function __construct(
-    private EleicaoServiceInterface $votacao_service
-  )
-  {
+    private EleicaoServiceInterface $eleicao_service
+  ) {}
 
-  }
   function new(): View
   {
     return view('new');
@@ -21,9 +19,15 @@ class EleicaoController extends Controller
 
   function create(Request $request)
   {
-    $this->votacao_service->create($request->all());
+    $this->eleicao_service->create($request->all());
 
-        return redirect()->route('home')
-          ->with('success', 'Poll created successfully.');
-    }
+    return redirect()->route('home')
+      ->with('success', 'Poll created successfully.');
+  }
+
+  function show($id)
+  {
+    [$dados_eleicao] = $this->eleicao_service->get($id);
+    return view('resumo', ['eleicao' => $dados_eleicao]);
+  }
 }

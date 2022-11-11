@@ -3,37 +3,40 @@
 
 @section('content')
   <div class="overflow-visible">
-  <h1 class="text-center fw-bold">Nova votação</h1>
+    <h1 class="text-center fw-bold">Nova votação</h1>
 
-  <div class="bg-warning-box p-4 rounded-4 mb-4">
-    <p class="fw-bold">Para cadastrar uma nova votação é necessario informar os dados de cada chapa:</p>
+    <div class="bg-warning-box p-4 rounded-4 mb-4">
+      <p class="fw-bold">Para cadastrar uma nova votação é necessario informar os dados de cada chapa:</p>
 
-    <ul class="fw-semibold">
-      <li>Nome da Chapa</li>
-      <li>Codigo do Chapa</li>
-      <li>Nome do Sindico</li>
-      <li>CPF do Sindico</li>
-      <li>Nome do Subsindico</li>
-      <li>CPF do Subsindico</li>
-    </ul>
-  </div>
+      <ul class="fw-semibold">
+        <li>Nome da Chapa</li>
+        <li>Codigo do Chapa</li>
+        <li>Nome do Sindico</li>
+        <li>CPF do Sindico</li>
+        <li>Nome do Subsindico</li>
+        <li>CPF do Subsindico</li>
+      </ul>
 
-  <button class="btn btn-success d-flex flex-row justify-content-center align-items-center mb-3" id="btnAdicionarChapa">
-    <span>Adicionar Chapa</span>
-    <i class="fa fa-plus fs-5 ms-1 "></i>
-  </button>
-
-  <form method="POST" action="{{route('create_eleicao')}}">
-    @csrf
-    <div id="chapas">
-
+      <span>Obs: Clique em adicionar chapa quantas chapas desejar.</span>
     </div>
 
+    <button class="btn btn-success d-flex flex-row justify-content-center align-items-center mb-3"
+            id="btnAdicionarChapa">
+      <span>Adicionar Chapa</span>
+      <i class="fa fa-plus fs-5 ms-1 "></i>
+    </button>
 
-    <div class="text-center pt-5">
-      <button type="submit" class="btn btn-outline-success w-25 p-2 fs-5" id="btnSubmit">Cadastrar</button>
-    </div>
-  </form>
+    <form method="POST" action="{{route('create_eleicao')}}">
+      @csrf
+      <div id="chapas">
+
+      </div>
+
+
+      <div class="text-center pt-5">
+        <button type="submit" class="btn btn-success w-25 p-2 fs-5" id="btnSubmit">Cadastrar</button>
+      </div>
+    </form>
   </div>
 @endsection
 
@@ -67,51 +70,53 @@
       const novoGroupInputs = document.createElement('div')
 
       novoGroupInputs.innerHTML = `
-      <div>
-        <h2>Dados da Chapa ${count + 1}</h2>
-        <div class="d-flex flex-column flex-md-row gap-3">
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="nomeChapa${count}">Nome</label>
-            <input type="text" class="form-control" id="nomeChapa${count}" name="nome_chapa[]" placeholder="Nome da Chapa">
-          </div>
-          <div class="input-group mb-3">
-            <laBel class="input-group-text" for="codigoChapa${count}">Codigo</laBel>
-            <input type="text" id="codigoChapa${count}" class="form-control" name="cod_chapa[]" placeholder="Codigo da chapa">
-          </div>
-        </div>
-      </div>
-      <div>
-        <h2>Dados do Sindico</h2>
-        <div class="d-flex flex-column flex-md-row gap-3">
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="nomeSindico${count}">Nome</label>
-            <input type="text" class="form-control" id="nomeSindico${count}" name="nome_sindico[]" placeholder="Nome do sindico">
-          </div>
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="cpfSindico${count}">CPF</label>
-            <input type="text" class="form-control" placeholder="CPF do sindico" name="cpf_sindico[]" id="cpfSindico${count}">
+      <div id="chapa">
+        <div>
+          <h2>Dados da Chapa</h2>
+          <div class="d-flex flex-column flex-md-row gap-3">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="nomeChapa${count}">Nome</label>
+              <input type="text" class="form-control" id="nomeChapa${count}" name="nome_chapa[]" placeholder="Nome da Chapa">
+            </div>
+            <div class="input-group mb-3">
+              <laBel class="input-group-text" for="codigoChapa${count}">Codigo</laBel>
+              <input type="text" id="codigoChapa${count}" class="form-control" name="cod_chapa[]" placeholder="Codigo da chapa">
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <h2>Dados do Subsindico</h2>
-        <div class="d-flex flex-column flex-md-row gap-3">
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="nomeSubsindico${count}">Nome</label>
-            <input type="text" class="form-control" id="nomeSubsindico${count}" name="nome_subsindico[]" placeholder="Nome do subsindico">
-          </div>
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="cpfSubsindico${count}">CPF</label>
-            <input type="text" id="cpfSubsindico${count}" class="form-control" name="cpf_subsindico[]" placeholder="Nome do subsindico">
+        <div>
+          <h2>Dados do Sindico</h2>
+          <div class="d-flex flex-column flex-md-row gap-3">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="nomeSindico${count}">Nome</label>
+              <input type="text" class="form-control" id="nomeSindico${count}" name="nome_sindico[]" placeholder="Nome do sindico">
+            </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="cpfSindico${count}">CPF</label>
+              <input type="text" class="form-control" placeholder="CPF do sindico" name="cpf_sindico[]" id="cpfSindico${count}">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="d-flex flex-grow-1 justify-content-end ">
-        <button type="button" class="btn btn-danger d-flex flex-row justify-content-center align-items-center mb-3" id="btnremoverChapa">
-          <span>Remover Chapa</span>
-          <i class="fa fa-close fs-5 ms-1 "></i>
-        </button>
-      </div>
+        <div>
+          <h2>Dados do Subsindico</h2>
+          <div class="d-flex flex-column flex-md-row gap-3">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="nomeSubsindico${count}">Nome</label>
+              <input type="text" class="form-control" id="nomeSubsindico${count}" name="nome_subsindico[]" placeholder="Nome do subsindico">
+            </div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="cpfSubsindico${count}">CPF</label>
+              <input type="text" id="cpfSubsindico${count}" class="form-control" name="cpf_subsindico[]" placeholder="Nome do subsindico">
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-grow-1 justify-content-end ">
+          <button type="button" class="btn btn-danger d-flex flex-row justify-content-center align-items-center mb-3" id="btnRemoverChapa${count}">
+            <span>Remover Chapa</span>
+            <i class="fa fa-close fs-5 ms-1 "></i>
+          </button>
+        </div>
+       </div>
       `
 
       chapas.appendChild(novoGroupInputs)
@@ -156,16 +161,14 @@
       cpfSindico.addEventListener('input', validaCampos)
       nomeSubsindico.addEventListener('input', validaCampos)
       cpfSubsindico.addEventListener('input', validaCampos)
-      count++
 
-      const btnRemoverChapa = document.getElementById('btnRemoverChapa')
-
+      const btnRemoverChapa = document.getElementById(`btnRemoverChapa${count}`)
       btnRemoverChapa.addEventListener('click', function () {
-        btnSubmit.disabled = true
-        const div = this.parentElement.parentElement
-        div.remove()
-        count--
+        const chapa = document.getElementById('chapa')
+        chapa.parentNode.removeChild(chapa)
       })
+
+      count++
     })
 
 

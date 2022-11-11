@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EleicaoController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\VotoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AppController::class, 'index'])->name('home');
 
-Route::prefix('/votacao')->group(function () {
-    Route::get('/cadastrar', [EleicaoController::class, 'new'])->name('new_eleicao');
-    Route::post('/cadastrar', [EleicaoController::class, 'create'])->name('create_eleicao');
+Route::prefix('/eleicao')->group(function () {
+  Route::get('/cadastrar', [EleicaoController::class, 'new'])->name('new_eleicao');
+  Route::post('/cadastrar', [EleicaoController::class, 'create'])->name('create_eleicao');
+  Route::get('/{id}', [EleicaoController::class, 'show'])->name('show_eleicao');
 });
 
-Route::get('/eleicao/{id}', [EleicaoController::class, 'show'])->name('show_eleicao');
+Route::prefix('/votar')->group(function () {
+  Route::post('/{id}', [VotoController::class, 'create'])->name('create_voto');
+  Route::get('/{id}', [VotoController::class, 'new'])->name('new_voto');
+});
+

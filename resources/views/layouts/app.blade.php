@@ -14,7 +14,8 @@
 
   </head>
   <body>
-    <div class="bg-all">
+  @include('sweetalert::alert')
+  <div class="bg-all">
       <div class="container py-4 min-vh-100">
         @yield('content')
       </div>

@@ -40,8 +40,9 @@
   background-color: transparent !important;
 }
 
-.btn-eleicao:hover {
-  background-color: #f8f9fa !important;
+.btn-with-hover:hover {
+  background-color: #f8f9fa95 !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
 }
 
 .bg-all {
@@ -65,8 +66,41 @@
   font-size: 16rem;
   color: rgba(255, 255, 255, 0.34);
   z-index: 0;
+  &.icon-light {
+    color: rgba(255, 255, 255, 0.20);
+  }
 }
 
 .z-2 {
   z-index: 2;
+}
+
+input[type='radio'] {
+  display: none;
+
+}
+
+input[type='radio'] + label {
+  cursor: pointer;
+}
+
+input[type='radio'] + label:before {
+  content: '';
+  width: 100%;
+  position: absolute;
+  min-height: 14rem;
+  height: max-content;
+  border-radius:4%;
+  display: inline-block;
+  background: #ffffff;
+  vertical-align: middle;
+  box-shadow: 0 0 0 .1em white, 0 0 0 .2em black;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input[type='radio']:checked + label:before {
+  background: #718096;
+  vertical-align: middle;
 }
