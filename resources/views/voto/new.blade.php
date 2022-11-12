@@ -7,6 +7,11 @@
     <span class="text-center fw-semibold fs-4">
       Eleição - {{$eleicao->id}}
     </span>
+    <div class="d-flex w-100 justify-content-end">
+      <a href="{{route('home')}}" class="btn btn-warning fw-bold fs-5 px-5 py-2 me-3">
+        Voltar
+      </a>
+    </div>
   </div>
 
   <div class="bg-warning-box p-4 rounded-4 mb-4 w-75 mx-auto mt-4">
