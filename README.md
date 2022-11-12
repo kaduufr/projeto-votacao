@@ -49,3 +49,8 @@ DB_PASSWORD=password
 
 1. Execute o comando `php artisan migrate` para criar as tabelas no banco de dados
 
+### Diagramas
+
+- Na pasta **diagramas** se encontra os diagramas do projeto
+- O diagrama conceitual pode ser aberto no aplicativo BRModelo
+- Segue junto uma imagem dos diagramas
