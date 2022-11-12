@@ -50,3 +50,8 @@ DB_PASSWORD=password
 8. Execute o comando `npm run dev` para iniciar o servidor do vite para complicar os styles
 9. Acesse o endereço `http://localhost:8000` no seu navegador
 
+### Diagramas
+
+- Na pasta **diagramas** se encontra os diagramas do projeto
+- O diagrama conceitual pode ser aberto no aplicativo BRModelo
+- Segue junto uma imagem dos diagramas
