@@ -47,7 +47,7 @@
   </div>
 
   <div class="d-flex flex-column mt-5 ">
-    <h1 class="text-center fw-bold w-100">Votos</h1>
+    <h1 class="text-center fw-bold w-100">Votos ({{$total_votos}})</h1>
     <div class="d-flex flex-row justify-content-sm-evenly w-100">
       @foreach($eleicao->chapas as $chapa)
         <div>
