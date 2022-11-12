@@ -29,6 +29,10 @@ DB_USERNAME=root
 DB_PASSWORD=password
 ```
 
+### Gerar app key
+
+- Apos baixar o projeto, caso dê erro de `key not found` execute o comando `php artisan key:generate` para gerar a chave da aplicação
+
 ### Como executar o projeto
 
 1. Clone este repositório
@@ -44,3 +48,4 @@ DB_PASSWORD=password
 ### Como criar o banco
 
 1. Execute o comando `php artisan migrate` para criar as tabelas no banco de dados
+
