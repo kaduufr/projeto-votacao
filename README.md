@@ -1,5 +1,6 @@
 ## Projeto Eleição
 
+O projeto foi construido usando laravel, MVC, injecão de dependencias
 
 ### Banco de Dados
 
@@ -33,6 +34,10 @@ DB_PASSWORD=password
 
 - Apos baixar o projeto, caso dê erro de `key not found` execute o comando `php artisan key:generate` para gerar a chave da aplicação
 
+### Como criar o banco
+
+1. Execute o comando `php artisan migrate` para criar as tabelas no banco de dados
+
 ### Como executar o projeto
 
 1. Clone este repositório
@@ -44,8 +49,4 @@ DB_PASSWORD=password
 7. Execute o comando `php artisan serve` para iniciar o servidor da aplicação
 8. Execute o comando `npm run dev` para iniciar o servidor do vite para complicar os styles
 9. Acesse o endereço `http://localhost:8000` no seu navegador
-
-### Como criar o banco
-
-1. Execute o comando `php artisan migrate` para criar as tabelas no banco de dados
 

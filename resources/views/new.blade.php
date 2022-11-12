@@ -3,10 +3,10 @@
 
 @section('content')
   <div class="overflow-visible">
-    <h1 class="text-center fw-bold">Nova votação</h1>
+    <h1 class="text-center fw-bold">Nova eleição</h1>
 
     <div class="bg-warning-box p-4 rounded-4 mb-4">
-      <p class="fw-bold">Para cadastrar uma nova votação é necessario informar os dados de cada chapa:</p>
+      <p class="fw-bold text-black">Para cadastrar uma nova votação é necessario informar os dados de cada chapa:</p>
 
       <ul class="fw-semibold">
         <li>Nome da Chapa</li>
@@ -17,7 +17,7 @@
         <li>CPF do Subsindico</li>
       </ul>
 
-      <span>Obs: Clique em adicionar chapa quantas chapas desejar.</span>
+      <span class="text-black">Obs: Clique em adicionar chapa quantas chapas desejar.</span>
     </div>
 
     <button class="btn btn-success d-flex flex-row justify-content-center align-items-center mb-3"

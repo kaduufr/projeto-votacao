@@ -6,6 +6,7 @@ use App\Services\Interfaces\EleicaoServiceInterface;
 use App\Services\Interfaces\VotoServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class EleicaoController extends Controller
 {
@@ -22,7 +23,7 @@ class EleicaoController extends Controller
   function create(Request $request)
   {
     $this->eleicao_service->create($request->all());
-
+    Alert::success('Eleição criada com sucesso!');
     return redirect()->route('home')
       ->with('success', 'Poll created successfully.');
   }
