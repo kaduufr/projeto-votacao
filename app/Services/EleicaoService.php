@@ -28,8 +28,20 @@ class EleicaoService implements EleicaoServiceInterface
     $this->voto_service->create($request);
   }
 
-  public function get(int $id): Collection
+  public function get(int $id): object
   {
-    return Eleicao::query()->where('id', $id)->with('chapas')->get();
+    return Eleicao::query()
+      ->where('id', $id)
+      ->with('chapas')
+      ->with('votos')
+      ->first();
+  }
+
+  public function getAll(): Collection
+  {
+    return Eleicao::query()
+      ->with('chapas')
+      ->orderBy('created_at', 'desc')
+      ->get();
   }
 }

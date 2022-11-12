@@ -28,16 +28,18 @@
                   <div class="w-100 mx-2 d-flex rounded-2 position-relative btn-eleicao p-2">
                     <span class="fw-bold">Chapa: {{$chapa->nome_chapa}}</span>
                     <br/>
-                    <span class="fw-semibold">Síndico: {{$chapa->nome_sindico}}</span>
-                    <span class="fw-semibold">Subsíndico: {{$chapa->nome_subsindico}}</span>
+                    <span class="fw-semibold" style="font-size: 20px;">Síndico: {{$chapa->nome_sindico}}</span>
+                    <span class="fw-semibold" style="font-size: 20px;">Subsíndico: {{$chapa->nome_subsindico}}</span>
                   </div>
                 </a>
               @endforeach
             </div>
             <div class="d-flex flex-row gap-2 pt-4 z-2">
-              <a href="{{route('new_voto', $eleicao->id)}}" class="btn btn-success fw-bold fs-5">
-                Votar
-              </a>
+              @if($eleicao->ativa == true)
+                <a href="{{route('new_voto', $eleicao->id)}}" class="btn btn-success fw-bold fs-5">
+                  Votar
+                </a>
+              @endif
               <a href="{{route('show_eleicao', $eleicao->id)}}" class="btn btn-warning fw-bold fs-5">
                 Acessar eleição
               </a>

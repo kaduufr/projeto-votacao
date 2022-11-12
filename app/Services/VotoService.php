@@ -42,4 +42,12 @@ class VotoService implements VotoServiceInterface
       ->where('bloco', $bloco)
       ->first();
   }
+
+  public function getVotesByChapa($eleicaoId, $chapaId)
+  {
+    return Voto::query()
+      ->where('cod_eleicao', $eleicaoId)
+      ->where('cod_chapa', $chapaId)
+      ->get();
+  }
 }

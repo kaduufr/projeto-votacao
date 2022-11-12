@@ -10,9 +10,9 @@
   </div>
 
   <div class="bg-warning-box p-4 rounded-4 mb-4 w-75 mx-auto mt-4">
-    <p class="fw-bold">Para votar é necessario possuir os seguintes dados:</p>
+    <p class="fw-bold text-black">Para votar é necessario possuir os seguintes dados:</p>
 
-    <ul class="fw-semibold">
+    <ul class="fw-semibold text-black">
       <li>Numero do apartamento</li>
       <li>Bloco do condominio</li>
     </ul>

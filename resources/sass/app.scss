@@ -13,6 +13,11 @@
   background-color: rgb(250, 220, 158) !important;
 }
 
+h1,h2,h3,h4,h5,h6, p, a, span {
+  font-family: 'Nunito', sans-serif;
+  color: #fff;
+}
+
 .btn[type="submit"]:disabled {
   background-color: #6c757d !important;
   border-color: transparent !important;
@@ -24,7 +29,6 @@
   min-height: 80px;
   display: flex;
   flex-direction: column;
-  color: rgb(2, 8, 14);
   z-index: 2;
   > span {
     z-index: 12;
@@ -43,15 +47,21 @@
 .btn-with-hover:hover {
   background-color: #f8f9fa95 !important;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+  .btn-eleicao{
+    > span {
+      color: #000000 !important;
+    }
+  }
+  p {
+    color: #000000 !important;
+  }
 }
 
 .bg-all {
-  background-color: #f8f9fa !important;
-  background-image: url("https://serpros.com.br/wp-content/uploads/2021/01/fundo_azul-1170x725.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 }
 
@@ -67,7 +77,10 @@
   color: rgba(255, 255, 255, 0.34);
   z-index: 0;
   &.icon-light {
-    color: rgba(255, 255, 255, 0.20);
+    left: 30px;
+    top: 18px;
+    font-size: 12rem;
+    color: rgba(255, 255, 255, 0.10);
   }
 }
 
@@ -92,15 +105,26 @@ input[type='radio'] + label:before {
   height: max-content;
   border-radius:4%;
   display: inline-block;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0);
   vertical-align: middle;
   box-shadow: 0 0 0 .1em white, 0 0 0 .2em black;
+  transition: 0.2s;
   &:hover {
     cursor: pointer;
   }
 }
 
 input[type='radio']:checked + label:before {
-  background: #718096;
+  //background: #718096;
+  background: rgba(2, 8, 14, 0.80);
   vertical-align: middle;
+  color: #0f0c29;
+
+}
+
+.ganhador {
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background-color: rgb(255, 229, 162);
 }

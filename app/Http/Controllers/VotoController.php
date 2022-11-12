@@ -18,7 +18,7 @@ class VotoController extends Controller
 
   function new($id): View
   {
-    [$dados_eleicao] = $this->eleicao_service->get($id);
+    $dados_eleicao = $this->eleicao_service->get($id);
     return view('voto.new', ['eleicao' => $dados_eleicao]);
   }
 

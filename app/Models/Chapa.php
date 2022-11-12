@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $cpf_sindico
  * @property string $nome_subsindico
  * @property string $cpf_subsindico
- * @property int $cod_votacao
+ * @property int $cod_eleicao
  *
  */
 
@@ -29,7 +29,7 @@ class Chapa extends Model
     'cpf_sindico',
     'nome_subsindico',
     'cpf_subsindico',
-    'cod_votacao'
+    'cod_eleicao'
   ];
 
   protected $visible = [
@@ -40,6 +40,11 @@ class Chapa extends Model
     'cpf_sindico',
     'nome_subsindico',
     'cpf_subsindico',
-    'cod_votacao'
+    'cod_eleicao'
   ];
+
+  public function votos()
+  {
+    return $this->hasMany(Voto::class, 'cod_chapa', 'id');
+  }
 }

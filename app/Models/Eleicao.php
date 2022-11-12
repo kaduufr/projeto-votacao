@@ -28,6 +28,11 @@ class Eleicao extends Model
 
     public function chapas()
     {
-      return $this->hasMany(Chapa::class, 'cod_votacao', 'id');
+      return $this->hasMany(Chapa::class, 'cod_eleicao', 'id');
+    }
+
+    public function votos()
+    {
+      return $this->hasMany(Voto::class, 'cod_eleicao', 'id');
     }
 }
