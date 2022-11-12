@@ -18,6 +18,7 @@ $ docker-compose up -d
 ### Configure a environment
 
 - O banco está configurado para o MYSQL, caso queira utilizar outro banco, altere o arquivo `.env` ou `config/database.yml` com as configurações do seu banco de dados.
+- Caso o arquivo .env não exista, copie o arquivo .env.example e renomeie para .env
 
 ```bash
 DB_CONNECTION=mysql
