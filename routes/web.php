@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChapaController;
 use App\Http\Controllers\EleicaoController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\VotoController;
@@ -29,3 +30,10 @@ Route::prefix('/votar')->group(function () {
   Route::get('/{id}', [VotoController::class, 'new'])->name('new_voto');
 });
 
+Route::prefix('/chapas')->group(function () {
+  Route::get('/', [ChapaController::class, 'index'])->name('chapas_index');
+  Route::get('/editar/{id}', [ChapaController::class, 'edit'])->name('edit_chapa');
+  Route::put('/editar', [ChapaController::class, 'update'])->name('update_chapa');
+  Route::get('/{id}', [ChapaController::class, 'show'])->name('show_chapa');
+  Route::delete('/{id}', [ChapaController::class, 'destroy'])->name('delete_chapa');
+});

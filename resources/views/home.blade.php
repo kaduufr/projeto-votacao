@@ -12,10 +12,17 @@
     <div class=" flex flex-grow-1 min-vh-90 pe-4">
       <div class="d-flex justify-content-between align-items-center mb-3 ">
         <p class="fw-semibold fs-2 ms-4">Eleições</p>
-        <a href="{{route('new_eleicao')}}" class="btn btn-danger d-flex flex-row align-items-center">
-          <i class="fa fa-plus fs-4 ms-1 me-2"></i>
-          <span class="fs-5">Nova Eleição</span>
-        </a>
+        <div class="d-flex gap-4">
+          <a href="{{route('new_eleicao')}}" class="btn btn-danger d-flex flex-row align-items-center">
+            <i class="fa fa-plus fs-4 ms-1 me-2"></i>
+            <span class="fs-5">Nova Eleição</span>
+          </a>
+          <a href="{{route('chapas_index')}}" class="btn btn-success d-flex flex-row align-items-center">
+            <span class="fs-5">Lista de Chapas</span>
+            <i class="fa fa-list fs-4 ms-2 me-2"></i>
+          </a>
+        </div>
+
       </div>
       <ul>
         @foreach ($eleicoes as $eleicao)

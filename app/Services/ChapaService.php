@@ -44,4 +44,28 @@ class ChapaService implements ChapaServiceInterface
   {
     return Chapa::all();
   }
+
+  public function get(int $id): object
+  {
+    return Chapa::query()->where('id', $id)->with('eleicao')->first();
+  }
+
+  public function update(array $request)
+  {
+    $chapa = Chapa::query()->where('id', $request['id'])->first();
+    $chapa->nome_chapa = $request['nome_chapa'];
+    $chapa->cod_chapa = $request['cod_chapa'];
+    $chapa->nome_sindico = $request['nome_sindico'];
+    $chapa->cpf_sindico = $request['cpf_sindico'];
+    $chapa->nome_subsindico = $request['nome_subsindico'];
+    $chapa->cpf_subsindico = $request['cpf_subsindico'];
+    $chapa->save();
+  }
+
+  public function delete(int $id)
+  {
+    $chapa = Chapa::find($id);
+    $chapa->eleicao()->detach();
+    $chapa->delete();
+  }
 }
