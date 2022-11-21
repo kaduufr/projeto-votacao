@@ -11,7 +11,7 @@
     @if(!$eleicao->ativa)
       <div class="ganhador w-50 mx-auto mt-3">
         <p class="text-center fw-bold fs-4 text-black ">
-          Vencedor: Chapa {{$vencedor->cod_chapa}}
+          Vencedor: Chapa {{$vencedor->nome_chapa}}
         </p>
         <p class="text-center fw-bold fs-4 text-black">
           {{$vencedor->nome_sindico}} e {{$vencedor->nome_subsindico}}

@@ -20,7 +20,6 @@ return new class extends Migration {
       $table->string('cpf_sindico')->nullable(false);
       $table->string('nome_subsindico')->nullable(false);
       $table->string('cpf_subsindico')->nullable(false);
-      $table->foreignId('cod_eleicao')->references('id')->on('eleicao')->nullable(false);
       $table->timestamps();
     });
   }

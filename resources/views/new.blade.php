@@ -17,17 +17,39 @@
         <li>CPF do Subsindico</li>
       </ul>
 
-      <span class="text-black">Obs: Clique em adicionar chapa quantas chapas desejar.</span>
+      <span
+        class="text-black">Obs: Você pode selecionar chapas de outras eleições como tambem adicionar quantas quiser.</span>
     </div>
-
-    <button class="btn btn-success d-flex flex-row justify-content-center align-items-center mb-3"
-            id="btnAdicionarChapa">
-      <span>Adicionar Chapa</span>
-      <i class="fa fa-plus fs-5 ms-1 "></i>
-    </button>
 
     <form method="POST" action="{{route('create_eleicao')}}">
       @csrf
+
+      @if(count($chapas)> 0)
+        <div class="mb-4">
+          <h3>Chapas Anteriores</h3>
+          <span>Você pode selecionar quantas chapas forem participar</span>
+          <div>
+            @foreach($chapas as $chapa)
+              <div class="d-flex flex-row  align-items-center">
+                <input type="checkbox" name="chapas[]" value="{{$chapa->id}}"
+                       aria-label="Chapa {{$chapa->nome_chapa}}"/>
+                <span class="fw-bold fs-5 ms-3">Chapa: {{$chapa->nome_chapa}}</span>
+                <span class="fw-bold fs-5 ms-3">Sindico: {{$chapa->nome_sindico}}</span>
+                <span class="fw-bold fs-5 ms-3">Subsindico: {{$chapa->nome_subsindico}}</span>
+              </div>
+            @endforeach
+          </div>
+        </div>
+      @endif
+
+      <div class="d-flex flex-row gap-4">
+        <button type="button" class="btn btn-success d-flex flex-row justify-content-center align-items-center mb-3"
+                id="btnAdicionarChapa">
+          <span>Adicionar Chapa</span>
+          <i class="fa fa-plus fs-5 ms-1 "></i>
+        </button>
+      </div>
+
       <div id="chapas">
 
       </div>
@@ -70,7 +92,7 @@
       const novoGroupInputs = document.createElement('div')
 
       novoGroupInputs.innerHTML = `
-      <div id="chapa">
+      <div id="chapa" class="mb-3">
         <div>
           <h2>Dados da Chapa</h2>
           <div class="d-flex flex-column flex-md-row gap-3">
@@ -110,12 +132,7 @@
             </div>
           </div>
         </div>
-        <div class="d-flex flex-grow-1 justify-content-end ">
-          <button type="button" class="btn btn-danger d-flex flex-row justify-content-center align-items-center mb-3" id="btnRemoverChapa${count}">
-            <span>Remover Chapa</span>
-            <i class="fa fa-close fs-5 ms-1 "></i>
-          </button>
-        </div>
+
        </div>
       `
 
@@ -162,11 +179,11 @@
       nomeSubsindico.addEventListener('input', validaCampos)
       cpfSubsindico.addEventListener('input', validaCampos)
 
-      const btnRemoverChapa = document.getElementById(`btnRemoverChapa${count}`)
-      btnRemoverChapa.addEventListener('click', function () {
-        const chapa = document.getElementById('chapa')
-        chapa.parentNode.removeChild(chapa)
-      })
+      // const btnRemoverChapa = document.getElementById(`btnRemoverChapa${count}`)
+      // btnRemoverChapa.addEventListener('click', function () {
+      //   const chapa = document.getElementById('chapa')
+      //   chapa.parentNode.removeChild(btnRemoverChapa)
+      // })
 
       count++
     })

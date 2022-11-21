@@ -26,13 +26,14 @@ class Eleicao extends Model
       'ativa'
     ];
 
-    public function chapas()
-    {
-      return $this->hasMany(Chapa::class, 'cod_eleicao', 'id');
-    }
 
     public function votos()
     {
       return $this->hasMany(Voto::class, 'cod_eleicao', 'id');
+    }
+
+    public function chapas()
+    {
+      return $this->belongsToMany(Chapa::class, 'eleicao_chapa', 'cod_eleicao', 'cod_chapa');
     }
 }

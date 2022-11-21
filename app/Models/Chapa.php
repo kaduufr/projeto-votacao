@@ -47,4 +47,9 @@ class Chapa extends Model
   {
     return $this->hasMany(Voto::class, 'cod_chapa', 'id');
   }
+
+  public function eleicao()
+  {
+    return $this->belongsToMany(Eleicao::class, 'eleicao_chapa', 'cod_chapa', 'cod_eleicao');
+  }
 }

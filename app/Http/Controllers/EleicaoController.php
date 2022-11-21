@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Interfaces\ChapaServiceInterface;
 use App\Services\Interfaces\EleicaoServiceInterface;
 use App\Services\Interfaces\VotoServiceInterface;
 use Illuminate\Http\Request;
@@ -12,12 +13,14 @@ class EleicaoController extends Controller
 {
   public function __construct(
     private EleicaoServiceInterface $eleicao_service,
+    private ChapaServiceInterface $chapa_service,
     private VotoServiceInterface $voto_service
   ) {}
 
   function new(): View
   {
-    return view('new');
+    $chapas = $this->chapa_service->getAll();
+    return view('new', ['chapas' => $chapas]);
   }
 
   function create(Request $request)
