@@ -72,6 +72,15 @@
     const chapas = document.getElementById('chapas')
 
     const inputs = document.getElementsByTagName('input')
+
+    const checkbox = Array.from(inputs).filter(input => input.type === 'checkbox')
+
+    checkbox.forEach(input => {
+      input.addEventListener('change', () => {
+        validaCampos()
+      })
+    })
+
     btnSubmit.disabled = true
 
     const maskCPF = (cpf) => {
@@ -188,10 +197,19 @@
       count++
     })
 
+    function checkboxChecked() {
+      let values = []
+      checkbox.forEach((item) => {
+        if (item.checked) {
+          values.push(item.value)
+        }
+      })
+      return values.includes(true)
+    }
 
     function validaCampos() {
       Array.from(inputs).forEach((input) => {
-        btnSubmit.disabled = input.value === '';
+        btnSubmit.disabled = !(input.value !== '' || !checkboxChecked()) ;
       })
     }
 
