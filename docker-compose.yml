@@ -3,14 +3,42 @@ version: "3"
 services:
   db:
     image: mysql:latest
-    container_name: db
+    container_name: votacao-db
+    restart: unless-stopped
     ports:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: password
     networks:
-      - projeto-votacao
+      - votacao
+  app:
+    build:
+      args:
+        user: sammy
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: votacao
+    container_name: votacao-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - votacao
+
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: votacao-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - votacao
 
 networks:
-  projeto-votacao:
+  votacao:
     driver: bridge
