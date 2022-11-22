@@ -21,11 +21,13 @@ services:
     image: votacao
     container_name: votacao-app
     restart: unless-stopped
-    working_dir: /var/www/
+    working_dir: /app
     volumes:
-      - ./:/var/www
+      - ./:/app
     networks:
       - votacao
+    ports:
+      - '5173:5173'
 
   nginx:
     image: nginx:1.17-alpine
@@ -34,7 +36,7 @@ services:
     ports:
       - 8000:80
     volumes:
-      - ./:/var/www
+      - ./:/app
       - ./docker-compose/nginx:/etc/nginx/conf.d
     networks:
       - votacao
