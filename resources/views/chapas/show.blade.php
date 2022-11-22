@@ -17,17 +17,17 @@
         Editar
         <i class="fa fa-edit ms-1"></i>
       </a>
-      <div
-        class=" mx-2 justify-content-center align-items-center ">
-        <form action="{{route('delete_chapa', $chapa->id)}}" method="post">
-          @method('delete')
-          @csrf
-          <button type="submit" class="btn btn-danger d-flex align-items-center fs-5 px-5 py-2 me-3" value="Delete">
-            <span>Deletar</span>
-            <i class="fa fa-trash ms-2"></i>
-          </button>
-        </form>
-      </div>
+{{--      <div--}}
+{{--        class=" mx-2 justify-content-center align-items-center ">--}}
+{{--        <form action="{{route('delete_chapa', $chapa->id)}}" method="post">--}}
+{{--          @method('delete')--}}
+{{--          @csrf--}}
+{{--          <button type="submit" class="btn btn-danger d-flex align-items-center fs-5 px-5 py-2 me-3" value="Delete">--}}
+{{--            <span>Deletar</span>--}}
+{{--            <i class="fa fa-trash ms-2"></i>--}}
+{{--          </button>--}}
+{{--        </form>--}}
+{{--      </div>--}}
 
     </div>
   </div>

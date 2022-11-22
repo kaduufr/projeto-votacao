@@ -37,14 +37,14 @@
                 </span>
                 <i class="fa fa-eye ms-2"></i>
               </a>
-                <form action="{{route('delete_chapa', $chapa->id)}}" method="post">
-                  @method('delete')
-                  @csrf
-                  <button type="submit" class="btn btn-danger d-flex align-items-center" value="Delete">
-                    <span>Deletar</span>
-                    <i class="fa fa-trash ms-2"></i>
-                  </button>
-                </form>
+{{--                <form action="{{route('delete_chapa', $chapa->id)}}" method="post">--}}
+{{--                  @method('delete')--}}
+{{--                  @csrf--}}
+{{--                  <button type="submit" class="btn btn-danger d-flex align-items-center" value="Delete">--}}
+{{--                    <span>Deletar</span>--}}
+{{--                    <i class="fa fa-trash ms-2"></i>--}}
+{{--                  </button>--}}
+{{--                </form>--}}
             </div>
           </div>
         </li>
