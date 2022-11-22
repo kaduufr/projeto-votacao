@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Chapa;
 use App\Models\Eleicao;
+use App\Models\EleicaoChapa;
 use App\Services\Interfaces\ChapaServiceInterface;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -65,7 +66,10 @@ class ChapaService implements ChapaServiceInterface
   public function delete(int $id)
   {
     $chapa = Chapa::find($id);
-    $chapa->eleicao()->detach();
+    $chapasEleicao = EleicaoChapa::query()->where('chapa_id', $id)->get();
+    foreach ($chapasEleicao as $chapaEleicao) {
+      $chapaEleicao->delete();
+    }
     $chapa->delete();
   }
 }
